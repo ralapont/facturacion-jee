@@ -36,7 +36,7 @@
         </dependency>
     </dependencies>
     
-     <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -50,6 +50,26 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <version>1.4</version><!-- application.xml verion -->
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.rafael</groupId>
+                            <artifactId>facturacion-ejb</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>com.rafael</groupId>
+                            <artifactId>facturacion-web</artifactId>
+                            <contextRoot>/facturacion-web</contextRoot>
+                        </webModule>
+                    </modules>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                </configuration>
+            </plugin>            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
